@@ -3,12 +3,14 @@ defmodule Ecto.ULID do
   An Ecto type for ULID strings.
   """
 
-  @behaviour Ecto.Type
+  use Ecto.Type
 
   @doc """
   The underlying schema type.
   """
   def type, do: :uuid
+
+  def equal?(term1, term2), do: term1 == term2
 
   @doc """
   Casts a string to ULID.
